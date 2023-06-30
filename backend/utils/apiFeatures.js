@@ -33,6 +33,13 @@ class ApiFeatures{
         this.query=this.query.find(JSON.parse(queryStr))
         return this;
     }
+    pagination(productPerPage)
+    {
+        const currPage=Number(this.queryStr.page)||1;
+        const skip=productPerPage*(currPage-1);
+        this.query=this.query.limit(productPerPage).skip(skip);
+        return this;
+    }
 };
 
 module.exports=ApiFeatures
