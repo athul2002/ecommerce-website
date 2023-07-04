@@ -31,6 +31,6 @@ module.exports=(err,req,res,next)=>{
     }
     res.status(err.stausCode).json({
         success:false,
-        error:err.stack,
+        error:err.message,
     });
 };
