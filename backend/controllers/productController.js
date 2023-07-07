@@ -14,9 +14,10 @@ exports.createProduct=asyncError(async(req,res,next)=>{
 });
 
 // Get all product
-exports.getAllProducts=asyncError(async(req,res)=>{
-    const productPerPage=5;
-    const productCount= await Product.countDocuments();
+exports.getAllProducts=asyncError(async(req,res,next)=>{
+    // return next(new ErrorHandler("this is my temp error",500));
+    const productPerPage=10;
+    const productsCount= await Product.countDocuments();
 
     const apiFeatures=new ApiFeatures(Product.find(),req.query)
     .search()
@@ -26,7 +27,7 @@ exports.getAllProducts=asyncError(async(req,res)=>{
 
     res.status(200).json({success:true,
         products,
-        productCount});
+        productsCount});
 }
 )
 
