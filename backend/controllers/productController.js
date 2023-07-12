@@ -16,18 +16,23 @@ exports.createProduct=asyncError(async(req,res,next)=>{
 // Get all product
 exports.getAllProducts=asyncError(async(req,res,next)=>{
     // return next(new ErrorHandler("this is my temp error",500));
-    const productPerPage=10;
+    const productPerPage=8;
     const productsCount= await Product.countDocuments();
 
     const apiFeatures=new ApiFeatures(Product.find(),req.query)
     .search()
     .filter()
-    .pagination(productPerPage);
-    const products=await apiFeatures.query;
-
+    // .pagination(productPerPage);
+    let products=await apiFeatures.query;
+    let filteredProductsCount=products.length;
+    apiFeatures.pagination(productPerPage)
+    products=await apiFeatures.query.clone();
     res.status(200).json({success:true,
         products,
-        productsCount});
+        productsCount,
+        productPerPage,
+        filteredProductsCount,
+      });
 }
 )
 
@@ -159,4 +164,4 @@ exports.deleteReviews=asyncError(async(req,res,next)=>{
         success:true,
         reviews:product.reviews,
     });
-  });
+  }); 

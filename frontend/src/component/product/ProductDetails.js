@@ -8,7 +8,7 @@ import ReactStars from 'react-rating-stars-component'
 import ReviewCard from './ReviewCard.js'
 import Loader from '../layout/Loader/Loader'
 import { useAlert } from "react-alert"
-
+import MetaData from "../layout/MetaData";
  const ProductDetails = () => {
     const alert=useAlert();
     const { id } = useParams();
@@ -34,6 +34,7 @@ import { useAlert } from "react-alert"
    return (
     <Fragment>
       {loading?<Loader/>:<Fragment>
+      <MetaData title={`${product.name} -- ECOMMERCE`} />
         <div className="ProductDetails">
         <div className='imageDisplay'>
               <Carousel className='carosContainer'>
