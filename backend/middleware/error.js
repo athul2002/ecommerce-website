@@ -1,7 +1,7 @@
 const ErrorHandler = require('../utils/errorHandler')
 
 module.exports=(err,req,res,next)=>{
-    err.stausCode=err.stausCode||500;
+    err.statusCode=err.statusCode || 500;
     err.message=err.message||"Internal Server Error";
 
     if(err.name==="CastError")
@@ -29,8 +29,8 @@ module.exports=(err,req,res,next)=>{
         const message=`Json Web Token is Expired,try again`;
         err=new ErrorHandler(message,400);
     }
-    res.status(err.stausCode).json({
+    res.status(err.statusCode).json({
         success:false,
-        error:err.message,
+        message:err.message,
     });
 };
