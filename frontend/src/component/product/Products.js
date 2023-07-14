@@ -29,7 +29,7 @@ const Products = () => {
     const {loading,products,productsCount,error,productPerPage,filteredProductsCount}=useSelector((state)=>state.products);
     const alert =useAlert();
     const dispatch = useDispatch();
-    const keyword = useParams();
+    const {keyword} = useParams();
     const setCurrentPageNo=(e)=>{
         setCurrentPage(e)
     }
