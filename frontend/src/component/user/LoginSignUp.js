@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react'
 import './LoginSignUp.css'
 import Loader from '../layout/Loader/Loader'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import FaceIcon from "@mui/icons-material/Face";
@@ -11,6 +11,7 @@ import { clearErrors, login, register } from '../../actions/userActions';
 import { useAlert } from 'react-alert';
 import ProfileImage from '../../images/Profile.png'
 const LoginSignUp = () => {
+    const location=useLocation()
     const navigate=useNavigate();
     const alert=useAlert();
     const dispatch =useDispatch();
@@ -65,6 +66,7 @@ const LoginSignUp = () => {
           setUser({ ...user, [e.target.name]: e.target.value });
         }
       };
+      const redirect=location.search?location.search.split("=")[1]:"/account";
       useEffect(()=>{
         if(error)
         {
@@ -73,9 +75,9 @@ const LoginSignUp = () => {
         }
         if(isAuthenticated)
         {
-          navigate("/account");
+          navigate(redirect);
         }
-      },[dispatch,error,alert,isAuthenticated,navigate]);
+      },[dispatch,error,alert,isAuthenticated,navigate,redirect]);
     const switchTabs=(e,tab)=>{
         if(tab==="login")
         {

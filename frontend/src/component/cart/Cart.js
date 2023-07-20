@@ -3,10 +3,11 @@ import './Cart.css'
 import CartItemCard from './CartItemCard.js';
 import { useDispatch, useSelector } from 'react-redux'
 import { addItemsToCart, removeItemsFromCart } from '../../actions/cartAction'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {Typography} from '@material-ui/core';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart'
 const Cart = () => {
+    const navigate=useNavigate();
     const dispatch=useDispatch();
     const {cartItems}=useSelector((state)=>state.cart)
 
@@ -26,6 +27,9 @@ const Cart = () => {
     }
     const deleteCartItems=(id)=>{
         dispatch(removeItemsFromCart(id));
+    }
+    const checkOutHandler=()=>{
+        navigate('/login?redirect=/shipping');
     }
   return (
     <Fragment>
@@ -64,7 +68,7 @@ const Cart = () => {
                 </div>
                 <div></div>
                 <div className="checkOutBtn">
-                    <button>Check Out</button>
+                    <button onClick={checkOutHandler}>Check Out</button>
                 </div>
             </div>
         </div>
