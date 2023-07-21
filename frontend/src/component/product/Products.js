@@ -7,7 +7,7 @@ import { useAlert } from "react-alert";
 import ProductCard from "../Home/ProductCard";
 import { useParams } from "react-router-dom";
 import Pagination from "react-js-pagination";
-import Slider from '@material-ui/core/Slider';
+import { Slider } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import MetaData from "../layout/MetaData";
 const categories = [
