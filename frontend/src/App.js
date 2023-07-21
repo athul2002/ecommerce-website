@@ -29,6 +29,7 @@ import MyOrders from './component/order/MyOrders.js'
 import OrderDetails from './component/order/OrderDetails.js'
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import Dashboard from "./component/admin/Dashboard.js"
 function App() {
   const {isAuthenticated, user}=useSelector((state)=>state.user);
   const[stripeApiKey,setStripeApiKey]=useState("");
@@ -62,9 +63,20 @@ function App() {
         <Route exact path="/login" element={<LoginSignUp/>}/>
         <Route
         exact
+            path="/process/payment"
+            element={stripeApiKey&&
+              <Elements stripe={loadStripe(stripeApiKey)}>
+                <ProtectedRoute >
+                <Payment />
+              </ProtectedRoute>
+              </Elements>
+            }
+          />
+        <Route
+        exact
             path="/account"
             element={
-              <ProtectedRoute isSignedIn={isAuthenticated} user={user}>
+              <ProtectedRoute >
                 <Profile />
               </ProtectedRoute>
             }
@@ -73,7 +85,7 @@ function App() {
         exact
             path="/me/update"
             element={
-              <ProtectedRoute isSignedIn={isAuthenticated} user={user}>
+              <ProtectedRoute >
                 <UpdateProfile />
               </ProtectedRoute>
             }
@@ -82,7 +94,7 @@ function App() {
         exact
             path="/password/update"
             element={
-              <ProtectedRoute isSignedIn={isAuthenticated} user={user}>
+              <ProtectedRoute >
                 <UpdatePassword />
               </ProtectedRoute>
             }
@@ -94,7 +106,7 @@ function App() {
         exact
             path="/shipping"
             element={
-              <ProtectedRoute isSignedIn={isAuthenticated} user={user}>
+              <ProtectedRoute >
                 <Shipping />
               </ProtectedRoute>
             }
@@ -104,7 +116,7 @@ function App() {
         exact
             path="/success"
             element={
-              <ProtectedRoute isSignedIn={isAuthenticated} user={user}>
+              <ProtectedRoute >
                 <OrderSuccess />
               </ProtectedRoute>
             }
@@ -113,7 +125,7 @@ function App() {
         exact
             path="/orders"
             element={
-              <ProtectedRoute isSignedIn={isAuthenticated} user={user}>
+              <ProtectedRoute >
                 <MyOrders />
               </ProtectedRoute>
             }
@@ -122,7 +134,7 @@ function App() {
         exact
             path="/order/confirm"
             element={
-              <ProtectedRoute isSignedIn={isAuthenticated} user={user}>
+              <ProtectedRoute >
                 <ConfirmOrder />
               </ProtectedRoute>
             }
@@ -131,22 +143,21 @@ function App() {
         exact
             path="/order/:id"
             element={
-              <ProtectedRoute isSignedIn={isAuthenticated} user={user}>
+              <ProtectedRoute >
                 <OrderDetails />
               </ProtectedRoute>
             }
           />
         <Route
         exact
-            path="/process/payment"
-            element={stripeApiKey&&
-              <Elements stripe={loadStripe(stripeApiKey)}>
-                <ProtectedRoute isSignedIn={isAuthenticated} user={user}>
-                <Payment />
+            path="/admin/dashboard"
+            element={
+              <ProtectedRoute isAdmin={true} >
+                <Dashboard />
               </ProtectedRoute>
-              </Elements>
             }
           />
+
 
       </Routes>
       
