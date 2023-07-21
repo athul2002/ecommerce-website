@@ -50,12 +50,12 @@ exports.getSingleOrder=asyncError(async(req,res,next)=>{
 
 // get logged in user Orders
 exports.myOrders=asyncError(async(req,res,next)=>{
-    const order=await Order.find({user:req.user._id}).populate("user","name email");
+    const orders=await Order.find({user:req.user._id}).populate("user","name email");
 
     res.status(200)
 .json({
     success:true,
-    order,
+    orders,
 });
 });
 

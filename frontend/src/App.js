@@ -25,6 +25,8 @@ import ConfirmOrder from './component/cart/ConfirmOrder.js'
 import axios from 'axios'
 import Payment from './component/cart/Payment.js'
 import OrderSuccess from './component/cart/OrderSuccess.js'
+import MyOrders from './component/order/MyOrders.js'
+import OrderDetails from './component/order/OrderDetails.js'
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 function App() {
@@ -97,6 +99,25 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+        <Route
+        exact
+            path="/success"
+            element={
+              <ProtectedRoute isSignedIn={isAuthenticated} user={user}>
+                <OrderSuccess />
+              </ProtectedRoute>
+            }
+          />
+        <Route
+        exact
+            path="/orders"
+            element={
+              <ProtectedRoute isSignedIn={isAuthenticated} user={user}>
+                <MyOrders />
+              </ProtectedRoute>
+            }
+          />
         <Route
         exact
             path="/order/confirm"
@@ -108,10 +129,10 @@ function App() {
           />
         <Route
         exact
-            path="/success"
+            path="/order/:id"
             element={
               <ProtectedRoute isSignedIn={isAuthenticated} user={user}>
-                <OrderSuccess />
+                <OrderDetails />
               </ProtectedRoute>
             }
           />
