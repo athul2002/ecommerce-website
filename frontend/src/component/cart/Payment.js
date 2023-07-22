@@ -117,7 +117,7 @@ const Payment = () => {
                     <VpnKeyIcon/>
                     <CardCvcElement className="paymentInput"/>
                 </div>
-                <input type="Submit" value={`Pay - ${orderInfo && orderInfo.totalPrice}`} ref={payBtn} className="paymentFormBtn" />
+                <input type="Submit" value={`Pay - ${orderInfo && orderInfo.totalPrice}`} readOnly ref={payBtn} className="paymentFormBtn" />
             </form>
         </div>
     </Fragment>
