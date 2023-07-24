@@ -37,6 +37,7 @@ import OrderList from "./component/admin/OrderList.js";
 import UpdateOrder from "./component/admin/UpdateOrder.js";
 import UserList from "./component/admin/UserList.js";
 import UpdateUser from "./component/admin/UpdateUser.js";
+import ProductReviews from "./component/admin/ProductReviews.js";
 function App() {
   const {isAuthenticated, user}=useSelector((state)=>state.user);
   const[stripeApiKey,setStripeApiKey]=useState("");
@@ -225,6 +226,15 @@ function App() {
             element={
               <ProtectedRoute isAdmin={true} >
                 <UpdateUser />
+              </ProtectedRoute>
+            }
+          />
+        <Route
+        exact
+            path="/admin/reviews"
+            element={
+              <ProtectedRoute isAdmin={true} >
+                <ProductReviews />
               </ProtectedRoute>
             }
           />
