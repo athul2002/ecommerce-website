@@ -38,6 +38,9 @@ import UpdateOrder from "./component/admin/UpdateOrder.js";
 import UserList from "./component/admin/UserList.js";
 import UpdateUser from "./component/admin/UpdateUser.js";
 import ProductReviews from "./component/admin/ProductReviews.js";
+import Contact from "./component/layout/contact/Contact.js";
+import About from "./component/layout/about/About.js";
+import NotFound from "./component/layout/notFound/NotFound.js";
 function App() {
   const {isAuthenticated, user}=useSelector((state)=>state.user);
   const[stripeApiKey,setStripeApiKey]=useState("");
@@ -56,7 +59,7 @@ function App() {
     Store.dispatch(loadUser());
     getStripeApiKey();
   },[]);
-
+  window.addEventListener("contextmenu",(e)=>e.preventDefault());
   return (
     <Router>
       <Header/>
@@ -238,6 +241,24 @@ function App() {
               </ProtectedRoute>
             }
           />
+        <Route
+        exact
+            path="/contact"
+            element={<Contact/>
+            }
+          />
+        <Route
+        exact
+            path="/about"
+            element={<About/>
+            }
+          />
+          <Route
+          path="*"
+          element={
+          <NotFound/>
+          }
+        />
       </Routes>
       
       <Footer/>
