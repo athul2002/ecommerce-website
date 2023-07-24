@@ -82,7 +82,7 @@ import { NEW_REVIEW_RESET } from '../../constants/productConstants';
    return (
     <Fragment>
       {loading?<Loader/>:<Fragment>
-      <MetaData title={`${product.name} -- ECOMMERCE`} />
+      <MetaData title={`${product.name} -- flamboyant`} />
         <div className="ProductDetails">
         <div className='imageDisplay'>
               <Carousel className='carosContainer'>

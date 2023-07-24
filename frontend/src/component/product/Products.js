@@ -49,7 +49,7 @@ const Products = () => {
   return (
     <Fragment>
         {loading?<Loader/>:<Fragment>
-        <MetaData title="PRODUCTS -- ECOMMERCE" />
+        <MetaData title="PRODUCTS -- Flamboyant" />
             <h2 className="productsHeading">Products</h2>
             <div className="products">
                 {

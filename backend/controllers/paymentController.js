@@ -5,7 +5,7 @@ exports.processPayment=asyncError(async(req,res,next)=>{
         amount:req.body.amount,
         currency:"inr",
         metadata:{
-            company:"Ecommerce",
+            company:"Flamboyant",
         },
     });
     res.status(200).json({
