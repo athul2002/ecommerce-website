@@ -9,7 +9,7 @@ import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import { UPDATE_ORDER_RESET } from '../../constants/orderConstants'
 import { getOrderDetails, updateOrder } from '../../actions/orderAction'
 import { useAlert } from 'react-alert'
-import { clearErrors } from '../../actions/productAction'
+import { clearErrors } from '../../actions/orderAction'
 import Loader from "../layout/Loader/Loader"
 import './UpdateOrder.css'
 const UpdateOrder = () => {

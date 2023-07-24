@@ -35,6 +35,8 @@ import NewProduct from "./component/admin/NewProduct.js";
 import UpdateProduct from "./component/admin/UpdateProduct.js";
 import OrderList from "./component/admin/OrderList.js";
 import UpdateOrder from "./component/admin/UpdateOrder.js";
+import UserList from "./component/admin/UserList.js";
+import UpdateUser from "./component/admin/UpdateUser.js";
 function App() {
   const {isAuthenticated, user}=useSelector((state)=>state.user);
   const[stripeApiKey,setStripeApiKey]=useState("");
@@ -205,6 +207,24 @@ function App() {
             element={
               <ProtectedRoute isAdmin={true} >
                 <UpdateOrder />
+              </ProtectedRoute>
+            }
+          />
+        <Route
+        exact
+            path="/admin/users"
+            element={
+              <ProtectedRoute isAdmin={true} >
+                <UserList />
+              </ProtectedRoute>
+            }
+          />
+        <Route
+        exact
+            path="/admin/user/:id"
+            element={
+              <ProtectedRoute isAdmin={true} >
+                <UpdateUser />
               </ProtectedRoute>
             }
           />

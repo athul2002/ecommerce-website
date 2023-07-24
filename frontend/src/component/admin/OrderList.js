@@ -64,7 +64,6 @@ const OrderList = () => {
                     <Link to={`/admin/order/${params.value}`}>
                         <EditIcon/>
                     </Link>
-                    {console.log(params.value)}
                     <Button onClick={()=>deleteOrderHandler(params.value)}>
                         <DeleteIcon/>
                     </Button>
