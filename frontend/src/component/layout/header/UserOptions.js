@@ -7,6 +7,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ProfileImage from '../../../images/Profile.png'
+import FavouriteIcon from'@mui/icons-material/Favorite';
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 import { logOut } from '../../../actions/userActions';
@@ -18,6 +19,7 @@ const UserOptions = ({user}) => {
     const [open,setOpen]=useState(false);
     const dispatch=useDispatch();
     const { cartItems } = useSelector((state) => state.cart);
+    const { favourites } = useSelector((state) => state.favourite);
     const options = [
         { icon: <ListAltIcon />, name: "Orders", func: orders },
         { icon: <PersonIcon />, name: "Profile", func: account },
@@ -29,6 +31,15 @@ const UserOptions = ({user}) => {
           ),
           name: `Cart(${cartItems.length})`,
           func: cart,
+        },
+        {
+          icon: (
+            <FavouriteIcon
+              style={{ color: favourites.length > 0 ? "tomato" : "unset" }}
+            />
+          ),
+          name: `Cart(${favourites.length})`,
+          func: favorite,
         },
         { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },
       ];
@@ -52,6 +63,9 @@ const UserOptions = ({user}) => {
       }
       function cart() {
         navigate("/cart");
+      }
+      function favorite() {
+        navigate("/favourite");
       }
       function logoutUser() {
         dispatch(logOut());
