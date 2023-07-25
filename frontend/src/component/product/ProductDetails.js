@@ -11,6 +11,8 @@ import MetaData from "../layout/MetaData";
 import {addItemsToCart} from '../../actions/cartAction'
 import { Button, Dialog,DialogActions,DialogContent, DialogTitle, Rating } from '@mui/material';
 import { NEW_REVIEW_RESET } from '../../constants/productConstants';
+import { addToFavourite, removeItemsFromFavourite } from '../../actions/favouriteAction';
+// import FavouriteBorderIcon from '@mui/icons-material/FavoriteBorder'
  const ProductDetails = () => {
   
     const alert=useAlert();
@@ -18,6 +20,7 @@ import { NEW_REVIEW_RESET } from '../../constants/productConstants';
     const dispatch=useDispatch();
     const {product,loading,error}=useSelector((state)=>state.productDetails);
     const {success,error:reviewError}=useSelector((state)=>state.newReview);
+    const {favourites}=useSelector((state)=>state.favourite)
     const [quantity,setQuantity]=useState(1);
     const [open,setOpen]=useState(false);
     const [rating,setRating]=useState(0);
@@ -43,6 +46,24 @@ import { NEW_REVIEW_RESET } from '../../constants/productConstants';
       alert.success("Item Added to Cart");
     };
 
+    let isFav=0;
+    favourites && favourites.map(function(item){
+      if(item.productId===id)
+      {
+        isFav=1;
+      }
+      return 0
+    }
+    
+)
+    const addToFavoriteHandler=()=>{
+      dispatch(addToFavourite(id));
+      alert.success("Item Added to Favorites");
+    };
+    const removeFavoriteHandler=()=>{
+      dispatch(removeItemsFromFavourite(id));
+      alert.success("Item Removed from Favorites");
+    };
     const submitReviewToggle=()=>{
       open?setOpen(false):setOpen(true);
     };
@@ -115,12 +136,14 @@ import { NEW_REVIEW_RESET } from '../../constants/productConstants';
                     <input readOnly type="number" value={quantity}/>
                     <button onClick={increaseQuantity}>+</button>
                   </div>
+                  <div>
                   <button
                     disabled={product.stock < 1 ? true : false}
                     onClick={addToCartHandler}
                   >
                     Add to Cart
                   </button>
+                  </div>
                 </div>
 
                 <p>
@@ -133,9 +156,19 @@ import { NEW_REVIEW_RESET } from '../../constants/productConstants';
             <div className="detailsBlock-4">
                 Description : <p>{product.description}</p>
             </div>
-            <button onClick={submitReviewToggle}className="submitReview">
-                Submit Review
-            </button>
+            <div className='btns'>
+              <button onClick={submitReviewToggle}className="submitReview">
+                  Submit Review
+              </button>
+              {
+                favourites && isFav?<button onClick={removeFavoriteHandler}className="addToFavorite">
+                  Remove From Favorite
+              </button>:<button onClick={addToFavoriteHandler}className="addToFavorite">
+                  Add to Favorite
+              </button>
+                
+              }
+            </div>
         </div>
         </div>
         <h3 className='reviewsHeading'>REVIEWS</h3>

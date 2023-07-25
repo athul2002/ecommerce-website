@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, getProduct } from "../../actions/productAction";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
-import ProductCard from "../Home/ProductCard";
+import ProductCard from "./ProductCard.js";
 import { useParams } from "react-router-dom";
 import Pagination from "react-js-pagination";
 import { Slider } from '@mui/material';
@@ -61,7 +61,7 @@ const Products = () => {
             </div>
             <div className="filterBox">
                 <Typography>Price</Typography>
-                <Slider value={price} onChange={priceHandler} valueLabelDisplay="auto" aria-labelledby="range-slider" min={0} max={150000}/>
+                <Slider value={price} onChange={priceHandler} valueLabelDisplay="auto" aria-labelledby="range-slider" min={0} max={250000}/>
                 <Typography>Categories</Typography>
                 <ul className="categoryBox">
                     {

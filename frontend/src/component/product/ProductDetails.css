@@ -90,6 +90,8 @@
   }
   .detailsBlock-3-1 {
     display: flex;
+    flex-direction: row;
+    /* justify-content: flex-start; */
     align-items: center;
   }
   
@@ -115,13 +117,13 @@
     color: rgba(0, 0, 0, 0.74);
   }
   
-  .detailsBlock-3-1 > button:last-child {
+  .detailsBlock-3-1 >div:last-child> button:last-child {
     border: none;
     cursor: pointer;
     color: white;
     transition: all 0.5s;
     background-color: tomato;
-    font: 500 0.7vmax "Roboto";
+    /* font: 500 0.7vmax "Roboto"; */
     border-radius: 20px;
     padding: 0.5vmax 2vmax;
     margin: 1vmax;
@@ -158,6 +160,18 @@
     border-radius: 20px;
     padding: 0.6vmax 2vmax;
     margin: 1vmax 0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+    outline: none;
+  }
+  .addToFavorite {
+    border: none;
+    background-color: tomato;
+    font: 500 0.7vmax "Roboto";
+    border-radius: 20px;
+    padding: 0.6vmax 2vmax;
+    margin: 1vmax;
     color: white;
     cursor: pointer;
     transition: all 0.5s;
@@ -318,6 +332,18 @@
       margin: 1.1vmax 0;
     }
   
+    .addToFavorite {
+      font: 500 1.7vmax "Roboto";
+      padding: 1.5vmax;
+      width: 20vmax;
+      margin: 1.1vmax 0;
+    }
+    .btns{
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
     .reviewCard > p {
       font: 600 3vw "Roboto";
     }
