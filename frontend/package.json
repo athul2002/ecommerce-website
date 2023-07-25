@@ -65,7 +65,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://10.25.1.169:4000",
+  "proxy": "http://172.20.10.5:4000",
   "devDependencies": {
     "eslint-plugin-react-hooks": "^4.6.0"
   }
