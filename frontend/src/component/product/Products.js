@@ -23,7 +23,7 @@ const categories = [
 const Products = () => {
 
     const [currentPage,setCurrentPage]=useState(1);
-    const [price,setPrice]=useState([0,25000]);
+    const [price,setPrice]=useState([0,150000]);
     const [category,setCategory]=useState("");
     const [ratings,setRatings]=useState(0);
     const {loading,products,productsCount,error,productPerPage,filteredProductsCount}=useSelector((state)=>state.products);
@@ -61,7 +61,7 @@ const Products = () => {
             </div>
             <div className="filterBox">
                 <Typography>Price</Typography>
-                <Slider value={price} onChange={priceHandler} valueLabelDisplay="auto" aria-labelledby="range-slider" min={0} max={25000}/>
+                <Slider value={price} onChange={priceHandler} valueLabelDisplay="auto" aria-labelledby="range-slider" min={0} max={150000}/>
                 <Typography>Categories</Typography>
                 <ul className="categoryBox">
                     {
