@@ -1,0 +1,43 @@
+.emptyFavorite {
+    margin: auto;
+    text-align: center;
+    padding: 10vmax;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .emptyFavorite > svg {
+    font-size: 5vmax;
+    color: tomato;
+  }
+  .emptyFavorite > p {
+    font-size: 2vmax;
+  }
+  .emptyFavorite > a {
+    background-color: rgb(51, 51, 51);
+    color: white;
+    border: none;
+    padding: 1vmax 3vmax;
+    cursor: pointer;
+    font: 400 1vmax "Roboto";
+    text-decoration: none;
+  }
+.favouriteContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.removeFavourite>button{  border: none;
+  background-color: tomato;
+  font: 500 0.7vmax "Roboto";
+  border-radius: 20px;
+  padding: 0.6vmax 2vmax;
+  margin: 1vmax;
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s;
+  outline: none;}
