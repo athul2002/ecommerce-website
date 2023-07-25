@@ -41,6 +41,7 @@ import ProductReviews from "./component/admin/ProductReviews.js";
 import Contact from "./component/layout/contact/Contact.js";
 import About from "./component/layout/about/About.js";
 import NotFound from "./component/layout/notFound/NotFound.js";
+import Favourite from './component/favourite/Favourite.js';
 function App() {
   const {isAuthenticated, user}=useSelector((state)=>state.user);
   const[stripeApiKey,setStripeApiKey]=useState("");
@@ -113,6 +114,7 @@ function App() {
         <Route exact path="/password/forgot"element={<ForgotPassword />}/>
         <Route exact path="/password/reset/:token" element={<ResetPassword/>} />
         <Route exact path="/cart" element={<Cart/>} />
+        <Route exact path="/favourite" element={<Favourite/>} />
         <Route
         exact
             path="/shipping"
