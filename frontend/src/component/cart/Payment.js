@@ -12,6 +12,7 @@ import EventIcon from "@mui/icons-material/Event";
 import { Typography } from "@mui/material";
 import axios from 'axios'
 import { clearErrors, createOrder } from "../../actions/orderAction";
+import { emptyCart } from "../../actions/cartAction";
 const Payment = () => {
     const orderInfo=JSON.parse(sessionStorage.getItem("orderInfo"));
     const dispatch=useDispatch();
@@ -82,6 +83,7 @@ const Payment = () => {
                   };
         
                   dispatch(createOrder(order));
+                  dispatch(emptyCart());
                 navigate("/success");
             } else {
               alert.error("There's some issue while processing payment ");
