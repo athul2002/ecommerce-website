@@ -14,7 +14,6 @@ exports.createProduct=asyncError(async(req,res,next)=>{
   }
 
   const imagesLinks = [];
-
   for (let i = 0; i < images.length; i++) {
     const result = await cloudinary.v2.uploader.upload(images[i], {
       folder: "products",
@@ -44,7 +43,6 @@ exports.getAllProducts=asyncError(async(req,res,next)=>{
     const apiFeatures=new ApiFeatures(Product.find(),req.query)
     .search()
     .filter()
-    // .pagination(productPerPage);
     let products=await apiFeatures.query;
     let filteredProductsCount=products.length;
     apiFeatures.pagination(productPerPage)
