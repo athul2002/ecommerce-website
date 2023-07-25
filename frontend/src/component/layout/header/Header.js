@@ -9,7 +9,7 @@ import {MdAddShoppingCart} from "react-icons/md";
 const options = {
   burgerColorHover: "#eb4034",
   logo,
-  logoWidth: "20vmax",
+  logoWidth: "15vmax",
   navColor1: "white",
   logoHoverSize: "10px",
   logoHoverColor: "#eb4034",
@@ -23,6 +23,7 @@ const options = {
   link4Url: "/about",
   link1Size: "1.3vmax",
   link1Color: "rgba(35, 35, 35,0.8)",
+  nav1FlexDirection:"row",
   nav1justifyContent: "flex-end",
   nav2justifyContent: "flex-end",
   nav3justifyContent: "flex-start",
