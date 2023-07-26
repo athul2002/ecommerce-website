@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema({
         minLength:[8,"Minimum 8 characters required"],
         select:false
     },
+    confirmation:{
+        type:String,
+        default:"inactive"
+    },
     avatar:{
         public_id:{
             type:String,
@@ -41,7 +45,9 @@ const userSchema = new mongoose.Schema({
         default: Date.now,
       },
     resetPasswordToken:String,
+    verifyMailToken:String,
     resetPasswordExpire:Date,
+    verifyMailExpire:Date,
 });
 userSchema.pre("save",async function(next){
     if(!this.isModified("password"))
@@ -76,4 +82,14 @@ userSchema.methods.getResetPasswordToken=function()
     return resetToken;
 }
 
+userSchema.methods.getMailVerifyToken=function()
+{
+    const resetToken=crypto.randomBytes(20).toString("hex");
+    // Hashing and adding resetPasswordTOken to userSchema
+    this.verifyMailToken=crypto.createHash("sha256").update(resetToken).digest("hex");
+    this.verifyMailExpire=Date.now()+15*60*100;
+    console.log(this.verifyMailToken)
+    return resetToken;
+
+}
 module.exports=mongoose.model("User",userSchema)
