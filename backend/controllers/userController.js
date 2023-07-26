@@ -26,7 +26,11 @@ exports.registerUserFirst=asyncError(async(req,res,next)=>{
     const resetToken = user.getMailVerifyToken();
     console.log(resetToken);
     await user.save({validateBeforeSave:false});
-    const verifyMailUrl=`${process.env.FRONTEND_URL}/verify/email/${resetToken}`
+
+    // const verifyMailUrl=`${process.env.FRONTEND_URL}/verify/email/${resetToken}`
+    const verifyMailUrl=`${req.protocol}://${req.get(
+      "host"
+    )}/verify/email/${resetToken}`;
     const message = `Hello ${name}. Please verify you mail using the link below :- \n\n ${verifyMailUrl} `;
       
     try {
