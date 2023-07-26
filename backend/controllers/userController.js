@@ -5,9 +5,10 @@ const sendToken = require('../utils/jwtToken');
 const sendEmail = require('../utils/sendEmail');
 const crypto=require('crypto');
 const cloudinary=require('cloudinary');
+const jwt = require('jsonwebtoken');
 
 // Register User
-exports.registerUser=asyncError(async(req,res,next)=>{
+exports.registerUserFirst=asyncError(async(req,res,next)=>{
   const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
     folder: "avatars",
     width: 150,
@@ -17,12 +18,65 @@ exports.registerUser=asyncError(async(req,res,next)=>{
     const user=await User.create({
         name,email,password,
         avatar:{
-            public_id:myCloud.public_id,
-            url:myCloud.secure_url
+          public_id:myCloud.public_id,
+          url:myCloud.secure_url
         }
     });
+    // sendToken(user,201,res);
+    const resetToken = user.getMailVerifyToken();
+    console.log(resetToken);
+    await user.save({validateBeforeSave:false});
+    const verifyMailUrl=`${process.env.FRONTEND_URL}/verify/email/${resetToken}`
+    const message = `Hello ${name}. Please verify you mail using the link below :- \n\n ${verifyMailUrl} `;
+      
+    try {
+      await sendEmail({
+        email: user.email,
+        subject: `Flamboyant Mail Verification`,
+        message,
+      });
+  
+      res.status(200).json({
+        success: true,
+        message: `Please verify your mail ID using the mail sent to ${user.email}.`,
+      });
+    } catch (error) {
+      user.verifyMailToken = undefined;
+      user.verifyMailExpire = undefined;
+  
+      await user.save({ validateBeforeSave: false });
+      return next(new ErrorHandler(error.message, 500));
+    }
+});
 
-    sendToken(user,201,res);
+exports.verifiedMail=asyncError(async(req,res,next)=>{
+  // creating token hash
+const verifyMailToken = crypto
+.createHash("sha256")
+.update(req.params.token)
+.digest("hex");
+
+const user = await User.findOne({
+verifyMailToken,
+verifyMailExpire: { $gt: Date.now() },
+});
+
+if (!user) {
+return next(
+  new ErrorHandler(
+    "Mail Verification Token is invalid or has been expired",
+    400
+  )
+);
+}
+
+user.confirmation = "active";
+user.verifyMailToken = undefined;
+user.verifyMailExpire = undefined;
+
+await user.save();
+
+sendToken(user, 200, res);
 });
 
 // Login User
@@ -37,9 +91,15 @@ exports.loginUser=asyncError(async(req,res,next)=>{
 
     const user=await User.findOne({email}).select("+password");
 
+   
     if(!user)
     {
         return next(new ErrorHandler("Invalid Credentials",401));
+    }
+
+    if(user.confirmation!=="active")
+    {
+      return next(new ErrorHandler("Please verify your mail to login",401))
     }
     const isPasswordMatched=await user.comparePassword(password);
 
@@ -64,6 +124,8 @@ exports.logout=asyncError(async(req,res,next)=>{
     });
 })
 
+
+
 // FORGOT PASSWORD
 exports.forgotPassword = asyncError(async (req, res, next) => {
     const user = await User.findOne({ email: req.body.email });
@@ -74,7 +136,6 @@ exports.forgotPassword = asyncError(async (req, res, next) => {
   
     // Get ResetPassword Token
     const resetToken = user.getResetPasswordToken();
-    console.log(resetToken)
     await user.save({ validateBeforeSave: false });
   
     const resetPasswordUrl = `${req.protocol}://${req.get(
