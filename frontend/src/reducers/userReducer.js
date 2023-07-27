@@ -38,6 +38,9 @@ import { LOGIN_REQUEST,
     USER_DETAILS_REQUEST,
     USER_DETAILS_SUCCESS,
     USER_DETAILS_FAIL,
+    VERIFIED_EMAIL_SUCCESS,
+    VERIFIED_EMAIL_REQUEST,
+    VERIFIED_EMAIL_FAIL,
   } from "../constants/userConstants";
 
 
@@ -47,12 +50,12 @@ export const userReducer=(state={users:{}},action)=>{
         case LOGIN_REQUEST:
             case REGISTER_USER_REQUEST:
                 case LOAD_USER_REQUEST:
+                  case VERIFIED_EMAIL_REQUEST:
             return{
                 loading:true,
                 isAuthenticated:false,
             };
         case LOGIN_SUCCESS:
-            case REGISTER_USER_SUCCESS:
                 case LOAD_USER_SUCCESS:
             return {
                 ...state,
@@ -60,6 +63,18 @@ export const userReducer=(state={users:{}},action)=>{
                 isAuthenticated:true,
                 user:action.payload,
             };
+            case REGISTER_USER_SUCCESS:
+            return {
+                ...state,
+                loading:false,
+                message:action.payload.message,
+            };
+            case VERIFIED_EMAIL_SUCCESS:
+              return{
+                ...state,
+                loading:false,
+
+              }
         case LOGOUT_SUCCESS:{
             return{
                 loading:false,
@@ -70,6 +85,7 @@ export const userReducer=(state={users:{}},action)=>{
 
         case LOGIN_FAIL:
             case REGISTER_USER_FAIL:
+              case VERIFIED_EMAIL_FAIL:
             return {
                 ...state,
                 loading:false,
