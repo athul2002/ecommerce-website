@@ -1,0 +1,43 @@
+.verifyMail {
+    margin: auto;
+    text-align: center;
+    padding: 10vmax;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .verifyMail > svg {
+    font-size: 7vmax;
+    color: #990011;
+  }
+  .verifyMail > p {
+    font-size: 2vmax;
+  }
+  .verifyMail > a {
+    background-color: rgb(51, 51, 51);
+    color: #FCF6F5;
+    border: none;
+    padding: 1vmax 3vmax;
+    cursor: pointer;
+    font: 400 1vmax "Roboto";
+    text-decoration: none;
+    margin: 2vmax;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .verifyMail > a {
+      padding: 3vw 6vw;
+      font: 400 4vw "Roboto";
+      margin: 2vmax;
+    }
+  
+    .verifyMail > svg {
+      font-size: 20vw;
+    }
+    .verifyMail > p {
+      margin: 2vmax;
+      font-size: 5vw;
+    }
+  }
