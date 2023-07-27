@@ -9,8 +9,8 @@ import { useAlert } from "react-alert";
 import { UPDATE_PROFILE_RESET } from "../../constants/userConstants";
 import MetaData from "../layout/MetaData";
 import { useNavigate } from "react-router-dom";
-
-const UpdateProfile = ({ history }) => {
+import ProfileImage from '../../images/Profile.png'
+const UpdateProfile = () => {
   const dispatch = useDispatch();
   const navigate=useNavigate();
   const alert = useAlert();
@@ -21,7 +21,7 @@ const UpdateProfile = ({ history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [avatar, setAvatar] = useState();
-  const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
+  const [avatarPreview, setAvatarPreview] = useState({ProfileImage});
 
   const updateProfileSubmit = (e) => {
     e.preventDefault();
@@ -115,6 +115,7 @@ const UpdateProfile = ({ history }) => {
                     type="file"
                     name="avatar"
                     accept="image/*"
+                    required
                     onChange={updateProfileDataChange}
                   />
                 </div>
