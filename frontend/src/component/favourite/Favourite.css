@@ -10,14 +10,14 @@
   }
   .emptyFavorite > svg {
     font-size: 5vmax;
-    color: tomato;
+    color: #990011;
   }
   .emptyFavorite > p {
     font-size: 2vmax;
   }
   .emptyFavorite > a {
     background-color: rgb(51, 51, 51);
-    color: white;
+    color: #FCF6F5;
     border: none;
     padding: 1vmax 3vmax;
     cursor: pointer;
@@ -32,12 +32,12 @@
   align-items: center;
 }
 .removeFavourite>button{  border: none;
-  background-color: tomato;
+  background-color: #990011;
   font: 500 0.7vmax "Roboto";
   border-radius: 20px;
   padding: 0.6vmax 2vmax;
   margin: 1vmax;
-  color: white;
+  color: #FCF6F5;
   cursor: pointer;
   transition: all 0.5s;
   outline: none;}

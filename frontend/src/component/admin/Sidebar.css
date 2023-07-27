@@ -1,5 +1,5 @@
 .sidebar {
-    background-color: rgb(255, 255, 255);
+    background-color: #FCF6F5;
     display: flex;
     flex-direction: column;
     padding: 4rem 0;
@@ -15,7 +15,7 @@
   }
   
   .sidebar > a > img:hover {
-    filter: drop-shadow(0 0 10px tomato);
+    filter: drop-shadow(0 0 10px #990011);
   }
   .sidebar a {
     text-decoration: none;
@@ -25,7 +25,7 @@
     transition: all 0.5s;
   }
   .sidebar a:hover {
-    color: tomato;
+    color: #990011;
     transform: scale(1.1);
   }
   
@@ -38,5 +38,5 @@
   }
   
   .MuiTypography-root {
-    background-color: #fff !important;
+    background-color: #FCF6F5 !important;
   }

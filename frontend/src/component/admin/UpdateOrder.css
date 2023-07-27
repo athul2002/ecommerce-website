@@ -1,11 +1,11 @@
 .updateOrderForm {
     margin: 5vmax 0;
     padding: 3vmax;
-    background-color: white;
+    background-color: #FCF6F5;
   }
   .newProductContainer{
     padding-left: 2rem;
-    background-color:white;
+    background-color:#FCF6F5;
   }
   .updateOrderForm > div {
     display: flex;

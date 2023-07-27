@@ -1,7 +1,7 @@
 .paymentContainer {
     display: grid;
     place-items: center;
-    background-color: rgb(255, 255, 255);
+    background-color: #FCF6F5;
     height: 65vh;
     margin: 2vmax;
   }
@@ -46,8 +46,8 @@
   
   .paymentFormBtn {
     border: none;
-    background-color: tomato;
-    color: white;
+    background-color: #990011;
+    color: #FCF6F5;
     font: 300 0.9vmax "Roboto";
     width: 100%;
     padding: 0.8vmax;

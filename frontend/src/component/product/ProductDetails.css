@@ -1,5 +1,5 @@
 .ProductDetails {
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     width: 100vw;
     max-width: 100%;
     padding: 6vmax;
@@ -13,7 +13,7 @@
   }
    .imageDisplay{
     width: 50%;
-    border: 1px solid white;
+    border: 1px solid #FCF6F5;
     padding: 2vmax;
     box-sizing: border-box;
     display: flex;
@@ -46,7 +46,7 @@
     align-items: center;
     padding: 2vmax;
     box-sizing: border-box;
-    border: 1px solid white;
+    border: 1px solid #FCF6F5;
   } 
 
   
@@ -100,7 +100,7 @@
     background-color: rgba(0, 0, 0, 0.616);
     padding: 0.5vmax;
     cursor: pointer;
-    color: white;
+    color: #FCF6F5;
     transition: all 0.5s;
   }
   .detailsBlock-3-1-1 > button:hover {
@@ -120,9 +120,9 @@
   .detailsBlock-3-1 >div:last-child> button:last-child {
     border: none;
     cursor: pointer;
-    color: white;
+    color: #FCF6F5;
     transition: all 0.5s;
-    background-color: tomato;
+    background-color: #990011;
     /* font: 500 0.7vmax "Roboto"; */
     border-radius: 20px;
     padding: 0.5vmax 2vmax;
@@ -155,24 +155,24 @@
   
   .submitReview {
     border: none;
-    background-color: tomato;
+    background-color: #990011;
     font: 500 0.7vmax "Roboto";
     border-radius: 20px;
     padding: 0.6vmax 2vmax;
     margin: 1vmax 0;
-    color: white;
+    color: #FCF6F5;
     cursor: pointer;
     transition: all 0.5s;
     outline: none;
   }
   .addToFavorite {
     border: none;
-    background-color: tomato;
+    background-color: #990011;
     font: 500 0.7vmax "Roboto";
     border-radius: 20px;
     padding: 0.6vmax 2vmax;
     margin: 1vmax;
-    color: white;
+    color: #FCF6F5;
     cursor: pointer;
     transition: all 0.5s;
     outline: none;

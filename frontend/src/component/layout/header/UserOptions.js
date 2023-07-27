@@ -26,7 +26,7 @@ const UserOptions = ({user}) => {
         {
           icon: (
             <ShoppingCartIcon
-              style={{ color: cartItems.length > 0 ? "tomato" : "unset" }}
+              style={{ color: cartItems.length > 0 ? "#990011" : "unset" }}
             />
           ),
           name: `Cart(${cartItems.length})`,
@@ -35,10 +35,10 @@ const UserOptions = ({user}) => {
         {
           icon: (
             <FavouriteIcon
-              style={{ color: favourites.length > 0 ? "tomato" : "unset" }}
+              style={{ color: favourites.length > 0 ? "#990011" : "unset" }}
             />
           ),
-          name: `Cart(${favourites.length})`,
+          name: `Favorite(${favourites.length})`,
           func: favorite,
         },
         { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },

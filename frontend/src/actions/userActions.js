@@ -35,6 +35,9 @@ import {
     USER_DETAILS_REQUEST,
     USER_DETAILS_SUCCESS,
     USER_DETAILS_FAIL,
+    VERIFIED_EMAIL_REQUEST,
+    VERIFIED_EMAIL_SUCCESS,
+    VERIFIED_EMAIL_FAIL,
   } from "../constants/userConstants";
   import axios from "axios";
   
@@ -66,11 +69,26 @@ import {
         userData,
         config
       );
-      dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
-
+      dispatch({ type: REGISTER_USER_SUCCESS, payload:data});
+    
     }catch(error)
     {
       dispatch({ type: REGISTER_USER_FAIL, payload: error.response.data.message });
+
+    }
+  };
+//  Register
+  export const confirmMail=(token)=>async(dispatch)=>{
+    try{
+      dispatch({type:VERIFIED_EMAIL_REQUEST});
+      const { data } = await axios.get(
+        `/api/v1/verify/email/${token}`,
+      );
+      dispatch({ type: VERIFIED_EMAIL_SUCCESS, payload: data });
+
+    }catch(error)
+    {
+      dispatch({ type: VERIFIED_EMAIL_FAIL, payload: error.response.data.message });
 
     }
   };

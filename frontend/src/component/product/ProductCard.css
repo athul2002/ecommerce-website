@@ -39,7 +39,7 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1vmax;
     margin: 0.5vmax 0.5vmax;
-    color: tomato;
+    color: #990011;
 }
 .productCard:hover {
     box-shadow: 0 0 5px rgba(15, 15, 15, 0.26);

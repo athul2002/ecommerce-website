@@ -21,7 +21,7 @@ const Profile = () => {
         <Fragment>
           <MetaData title={`${user.name}'s Profile`} />
           <div className="profileContainer">
-            <div>
+            <div className="toggleDiv">
               <h1>My Profile</h1>
               <img src={user.avatar.url} alt={user.name} />
               <Link to="/me/update">Edit Profile</Link>

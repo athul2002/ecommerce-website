@@ -6,10 +6,13 @@
     position: absolute;
 }
 
+#typographyDashboard{
+    background-color: #FCF6F5;
+}
 .dashboardContainer{
     border-left: 1px solid rgba(0, 0, 0, 0.13);
     padding: 3rem 0;
-    background-color: white;
+    background-color: #FCF6F5;
 }
 
 .dashboardContainer >h1{
@@ -27,14 +30,14 @@
 
 .dashboardSummary>div{
     display: flex;
-    background-color: white;
+    background-color: #FCF6F5;
     justify-content: center;
 }
 
 .dashboardSummary>div>p{
     width: 100%;
-    background-color: tomato;
-    color: white;
+    background-color: #990011;
+    color: #FCF6F5;
     margin: 0 2rem;
     padding: 1.5rem;
     text-align: center;
@@ -58,12 +61,12 @@
 }
 
 .dashboardSummaryBox2>a:first-child{
-    color: white;
+    color: #FCF6F5;
     background-color:cornflowerblue;
     
 }
 .dashboardSummaryBox2>a:last-child{
-    color: white;
+    color: #FCF6F5;
     background-color:black;
 
 }

@@ -21,8 +21,8 @@
 .banner > a > button{
     margin-bottom: 5vmax;
     cursor: pointer;
-    background-color: white;
-    border: 1px solid white;
+    background-color: #FCF6F5;
+    border: 1px solid #FCF6F5;
     border-radius: 0;
     padding: 1vmax;
     transition: all 0.5s;
@@ -32,7 +32,7 @@
 
 .banner > a > button:hover{
     background-color: rgba(255, 255, 255, 0);
-    color: white;
+    color: #FCF6F5;
 }
 
 .banner::after{

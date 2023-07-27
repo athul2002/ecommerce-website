@@ -17,13 +17,13 @@
     font: 400 1.2vmax "Roboto";
     padding: 0.5vmax;
     box-sizing: border-box;
-    color: rgb(255, 255, 255);
+    color: #FCF6F5;
     transition: all 0.5s;
     background-color: rgb(44, 44, 44);
   }
   
   .myOrdersTable {
-    background-color: white;
+    background-color: #FCF6F5;
   }
   
   .myOrdersTable div {
@@ -38,16 +38,16 @@
   }
   
   .myOrdersTable a:hover {
-    color: tomato;
+    color: #990011;
   }
   
   .MuiDataGrid-columnHeader {
-    background-color: tomato;
+    background-color: #990011;
     padding: 1vmax !important;
   }
   
   .MuiDataGrid-columnHeader div {
-    color: rgb(255, 255, 255);
+    color: #FCF6F5;
     font: 500 1.1vmax "Roboto" !important;
   }
   
@@ -57,6 +57,7 @@
   
   @media screen and (max-width: 600px) {
     .myOrdersPage {
+      margin-top: 4rem;
       padding: 0;
       height: 93vh;
     }

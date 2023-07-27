@@ -15,7 +15,7 @@ const LoginSignUp = () => {
     const navigate=useNavigate();
     const alert=useAlert();
     const dispatch =useDispatch();
-    const {error,loading,isAuthenticated}=useSelector((state)=>state.user);
+    const {error,loading,isAuthenticated,message}=useSelector((state)=>state.user);
     const loginTab=useRef(null);
     const registerTab=useRef(null);
     const switcherTab=useRef(null);
@@ -46,9 +46,8 @@ const LoginSignUp = () => {
         myForm.set("email", email);
         myForm.set("password", password);
         myForm.set("avatar", avatar);
-        dispatch(register(myForm))
 
-        // dispatch(register(myForm));
+        dispatch(register(myForm));
       };
       const registerDataChange = (e) => {
         if (e.target.name === "avatar") {
@@ -73,11 +72,19 @@ const LoginSignUp = () => {
           alert.error(error);
           dispatch(clearErrors());
         }
+        if(message)
+        {
+          alert.success(message);
+        }
+        // if(user)
+        // {
+        //   navigate(redirect);
+        // }
         if(isAuthenticated)
         {
-          navigate(redirect);
+          navigate(redirect)
         }
-      },[dispatch,error,alert,isAuthenticated,navigate,redirect]);
+      },[dispatch,error,alert,navigate,isAuthenticated,redirect,message]);
     const switchTabs=(e,tab)=>{
         if(tab==="login")
         {
@@ -99,7 +106,7 @@ const LoginSignUp = () => {
       {loading?<Loader/>:<Fragment>
         <div className="LoginSignUpContainer">
             <div className="LoginSignUpBox">
-                <div>
+                <div className='toggleDiv'>
                     <div className="login_signUp_toggle">
                         <p onClick={(e)=>switchTabs(e,"login")}>LOGIN</p>
                         <p onClick={(e)=>switchTabs(e,"register")}>REGISTER</p>

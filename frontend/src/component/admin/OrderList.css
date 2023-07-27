@@ -1,7 +1,7 @@
 .productListContainer {
     width: 100%;
     box-sizing: border-box;
-    background-color: rgb(255, 255, 255);
+    background-color: #FCF6F5;
     border-left: 1px solid rgba(0, 0, 0, 0.158);
     display: flex;
     flex-direction: column;
@@ -19,7 +19,7 @@
   }
   
   .productListTable {
-    background-color: white;
+    background-color: #FCF6F5;
     border: none !important;
   }
   
@@ -36,7 +36,7 @@
   }
   
   .productListTable a:hover {
-    color: tomato;
+    color: #990011;
   }
   
   .productListTable button:hover {
@@ -44,7 +44,7 @@
   }
   
   .MuiDataGrid-columnHeader div {
-    color: rgb(255, 255, 255);
+    color: #FCF6F5;
   }
   
   @media screen and (max-width: 600px) {

@@ -29,7 +29,7 @@
   }
   
   .page-item {
-    background-color: rgb(255, 255, 255);
+    background-color: #FCF6F5;
     list-style: none;
     border: 1px solid rgba(0, 0, 0, 0.178);
     padding: 1vmax 1.5vmax;
@@ -59,11 +59,11 @@
   }
   
   .pageItemActive {
-    background-color: tomato;
+    background-color: #990011;
   }
   
   .pageLinkActive {
-    color: white;
+    color: #FCF6F5;
   }
   
   .filterBox {
@@ -86,7 +86,7 @@
     transition: all 0.5s;
   }
   .category-link:hover {
-    color: tomato;
+    color: #990011;
   }
   
   .filterBox > fieldset {

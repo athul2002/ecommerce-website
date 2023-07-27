@@ -12,7 +12,7 @@
   }
   
   .updateProfileBox {
-    background-color: white;
+    background-color: #FCF6F5;
     width: 25vw;
     height: 70vh;
     box-sizing: border-box;
@@ -85,7 +85,7 @@
     transition: all 0.5s;
     padding: 0 1vmax;
     color: rgba(0, 0, 0, 0.623);
-    background-color: rgb(255, 255, 255);
+    background-color: #FCF6F5;
   }
   
   #updateProfileImage > input::file-selector-button:hover {
@@ -94,8 +94,8 @@
   
   .updateProfileBtn {
     border: none;
-    background-color: tomato;
-    color: white;
+    background-color: #990011;
+    color: #FCF6F5;
     font: 300 0.9vmax "Roboto";
     width: 100%;
     padding: 0.8vmax;
@@ -112,7 +112,7 @@
   
   @media screen and (max-width: 600px) {
     .updateProfileContainer {
-      background-color: white;
+      background-color: #FCF6F5;
     }
     .updateProfileBox {
       width: 100vw;

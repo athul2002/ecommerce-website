@@ -9,6 +9,7 @@ import ProductDetails from "./component/product/ProductDetails.js";
 import Products from './component/product/Products.js'
 import Search from './component/product/Search.js'
 import LoginSignUp from "./component/user/LoginSignUp.js";
+import VerifyEmail from "./component/user/VerifyEmail.js";
 import Profile from "./component/user/Profile.js";
 import Store from './Store'
 import { loadUser } from './actions/userActions.js'
@@ -58,7 +59,10 @@ function App() {
       },
     });
     Store.dispatch(loadUser());
-    getStripeApiKey();
+    // if(user && user.confirmation==="active")
+    // {
+      getStripeApiKey();
+    // }
   },[]);
   window.addEventListener("contextmenu",(e)=>e.preventDefault());
   return (
@@ -115,6 +119,7 @@ function App() {
         <Route exact path="/password/reset/:token" element={<ResetPassword/>} />
         <Route exact path="/cart" element={<Cart/>} />
         <Route exact path="/favourite" element={<Favourite/>} />
+        <Route exact path="/verify/email/:token" element={<VerifyEmail/>} />
         <Route
         exact
             path="/shipping"

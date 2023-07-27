@@ -40,7 +40,7 @@ const Dashboard = () => {
     labels:["Initial Amount","Amount Earned"],
     datasets:[{
       label:"TOTAL AMOUNT",
-      backgroundColor:["tomato"],
+      backgroundColor:["#990011"],
       hoverBackgroundColor:["rgb(197,72,49)"],
       data:[0,totalAmount],
     },
@@ -61,7 +61,7 @@ const Dashboard = () => {
     <div className='dashboard'>
       <Sidebar/>
       <div className="dashboardContainer">
-      <Typography component="h1">Dashboard</Typography>
+      <Typography component="h1" id='typographyDashboard'>DASHBOARD</Typography>
       <div className="dashboardSummary">
         <div>
           <p>

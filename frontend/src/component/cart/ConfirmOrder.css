@@ -1,6 +1,6 @@
 .confirmOrderPage {
     height: 100vh;
-    background-color: white;
+    background-color: #FCF6F5;
     display: grid;
     grid-template-columns: 6fr 3fr;
   }
@@ -109,8 +109,8 @@
   }
   
   .orderSummary > button {
-    background-color: tomato;
-    color: white;
+    background-color: #990011;
+    color: #FCF6F5;
     width: 100%;
     padding: 1vmax;
     border: none;
