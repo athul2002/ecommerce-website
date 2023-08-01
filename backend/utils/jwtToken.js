@@ -7,11 +7,11 @@ const sendToken=(user,statusCode,res)=>{
         httpOnly:true,
     };
 
-    res.status(statusCode).cookie('token',token,options).json({
+    res.status(statusCode).setHeader('Authorization', 'Bearer '+ token,options).cookie('token',token,options).json({
         success:true,
         user,
         token,
-    });
+    })
 };
 
 module.exports=sendToken;
